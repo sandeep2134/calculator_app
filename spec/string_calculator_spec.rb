@@ -31,4 +31,10 @@ RSpec.describe StringCalculator do
       expect(StringCalculator.add("//;\n1;2;3")).to eql(6)
     end
   end
+
+  context "given negative numbers" do
+    it "raises an ArgumentError" do
+      expect { StringCalculator.add("1,-2,3,-4,5") }.to raise_error(ArgumentError, "negative numbers not allowed: -2, -4")
+    end
+  end
 end
