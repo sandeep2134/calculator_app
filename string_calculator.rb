@@ -7,10 +7,10 @@ class StringCalculator
   end
 
   def self.digits(input)
-    input.gsub("\n", delimiter).split(delimiter).map{|x| x.to_i}
+    input.gsub("\n", delimiter(input)).split(delimiter(input)).map{|x| x.to_i}
   end
 
-  def self.delimiter
-    ','
+  def self.delimiter(input)
+    input[0,2] == '//' ? input[2,1] : ','
   end
 end
